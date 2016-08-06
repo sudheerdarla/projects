@@ -1,33 +1,182 @@
+/* global $ */
+/* global CodeMirror */
+
 var state = {
   slideIndex: 0
 };
 
 
-var slides  = [
+var snippets  = [
+
   {
     title: 'Headings',
-    code: '<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<h4>Heading 4</h4>\n<h5>Heading 5</h5>'
+    code: `<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+`
   },
   {
     title: 'Paragraph',
-    code: '<p>Lorem Ipsum</p><p>Lorem Ipsum</p>'
-  },
-  {
-    title: 'Division',
-    code: '<div>Heading 1</div>'
+    code: '<h1>FreeCodeCamp</h1>\n<p>Learn to code</p>\n<p>And help nonprofits</p>'
   },
   {
     title: 'Spans',
-    code: '<span>Heading 1</span>'
+    code: `<h1>FreeCodeCamp</h1>\n
+<p>Learn to <span style="color:green">code</span></p>\n
+<p>And help <span style="color:purple">nonprofits</span></p>`
   },
   {
     title: 'Links',
-    code: '<a href="https://google.co.in">Google</a>'
+    code: `<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span> 
+and help <span style="color:purple">nonprofits</span></p>\n 
+<p>at <a href="https://www.freecodecamp.com">Free Code Camp</a>.</p>`
   },
     {
     title: 'Images',
-    code: '<img src="http://i.imgur.com/Ru37gzO.png" />'
+    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n 
+<p>at <a href="https://www.freecodecamp.com">Free Code Camp</a>.</p>`
   },
+  {
+    title: 'Lists',
+    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n
+<!-- Show Ordered Lists -->\n
+<ul>
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>`
+  },
+  {
+    title: 'Button',
+    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n
+<ul>
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>
+<button type="button">Start coding (it's free)</button>`
+  },
+  //CSS
+  {
+    title:'Element Selector',
+    code:`<style>
+p {
+    color: green;
+}
+</style>
+<p>Every paragraph will be affected by the style.</p>
+<p id="para1">Me too!</p>
+<p>And me!</p>`
+  },
+  {
+    title: 'ID Selector',
+    code: `<style>
+#para {
+    color: green;
+}
+</style>
+<p id="para">My id is "para" !</p>
+<p>I am a paragraph and I don't have an id.</p>`
+  },
+  {
+    title: 'Class Selector',
+    code: `<style>
+.para {
+    color: red;
+}
+</style>
+<p class="para">Make HTML Great Again!</p>
+<p class="para">I am a paragraph and I don't have an id.</p>`
+  },
+  {
+    title:'Background Color',
+    code:`
+    <style>
+p {
+  color: white;  
+}
+.para1 {
+    background: blueviolet;
+}
+.para2 {
+    background: brown;
+}
+</style>
+<p class="para1">Make HTML Great Again!</p>
+<p class="para2">I am a paragraph and I don't have an id.</p>
+`
+  },
+  {
+    title:'Height & Width',
+    code:`<style>
+    .full {
+    height: 50px;
+    width: 100%;
+    background-color: powderblue;
+}
+.half {
+    height: 100px;
+    width: 50%;
+    background-color: lightgreen;
+}
+</style>
+<p class="full">This element has a height of 500px and a width of 100%:</p>
+<p class="half">This element has a height of 100px and a width of 50%:</p>
+`
+  },
+  {
+    title:'Padding',
+    code:
+    `<style>
+p {
+  color: white
+}
+  
+.para1 {
+  background: green;
+  padding: 50px;
+}
+
+.para2 {
+  background: blue;
+  padding: 50px 80px;
+}
+</style>
+<p class="para1">Make HTML Great Again!</p>
+<p class="para2">I am a paragraph and I don't have an id.</p>
+`
+  },
+  {
+    title:'Margin',
+    code:`<style>
+.para1 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    /* margin: 100px; */
+    /* margin: 50px 100px; */
+    background-color: lightgreen;
+}
+</style>
+<p class="para1">Make HTML Great Again!</p>
+<p class="para2">I am a paragraph and I don't have an id.</p>
+`
+  },
+
 ];
 
 
@@ -40,29 +189,35 @@ var editor = CodeMirror(document.querySelector('.editor'),
 editor.setOption('lineNumbers', true);
 
 editor.on('change', function (editorInstance) {
-  var htmlText = editorInstance.getValue()
+  var htmlText = editorInstance.getValue();
   
-  $('.rendered').html(htmlText)
+  $('.rendered').html(htmlText);
 });
 
 
-$('.title').html(slides[0].title)
-editor.setValue(slides[0].code)
+$('.title').html(snippets[0].title);
+editor.setValue(snippets[0].code);
 
-$('.left-button').click(function () {
-  if (state.slideIndex > 0) {
+$('.left-arrow').click(function () {
+  if(state.slideIndex == 0){
+    state.slideIndex = snippets.length - 1;
+  } else if (state.slideIndex > 0) {
     state.slideIndex -= 1;
-    
-    $('.title').html(slides[state.slideIndex].title);
-    editor.setValue(slides[state.slideIndex].code);
   }
-})
+  var snippet = snippets[state.slideIndex];
+    
+  $('.title').html(snippet.title);
+  editor.setValue(snippet.code.trim());
+});
 
-$('.right-button').click(function () {
-  if (state.slideIndex < slides.length - 1) {
+$('.right-arrow').click(function () {
+  if (state.slideIndex == snippets.length - 1){
+    state.slideIndex = 0;
+  }else if (state.slideIndex < snippets.length - 1) {
     state.slideIndex += 1;
-    
-    $('.title').html(slides[state.slideIndex].title);
-    editor.setValue(slides[state.slideIndex].code);
   }
-})
+  var snippet = snippets[state.slideIndex];
+    
+  $('.title').html(snippet.title);
+  editor.setValue(snippet.code.trim());
+});
