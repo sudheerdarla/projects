@@ -2,23 +2,37 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
 .left-button, .right-button {
+    align-self: center;
     width: 100px;
     height: 100px;
     background-color: pink;
 }
 
-.editor, .rendered {
-    width: 50vw;
-    height: 40vh;
+.editor {
+    width: 600px;
+    height: 250px;
     border: solid 1px #000;
 }
+
+.rendered {
+    width: 600px;
+    min-height: 350px;
+    border: solid 1px #000;
+}
+
 
 .editor {
     margin-bottom: 10px;
 }
 
+.rendered {
+    padding: 2px;
+}
+
+.CodeMirror {
+    height: 248px;
+}
