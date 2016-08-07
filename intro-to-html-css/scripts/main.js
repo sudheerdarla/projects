@@ -172,15 +172,22 @@ and help <span style="color:purple">nonprofits</span></p>\n
 #btn {
   background-color : yellow;
 }
-#list {
-    list-style-type: none;
-    display : inline;
+#list{
+  margin-left: -10%
+}
+#list li{
+  list-style-type: none;
+  display : inline-block;
+  width: 150px;
+  margin: 20px;
 }
 </style>
 <div id="snippet">
-<h1>FreeCodeCamp</h1>\n 
+<h1>FreeCodeCamp</h1>
+ 
 <p>Learn to <span style="color:green">code</span>
-and help <span style="color:purple">nonprofits</span></p>\n
+and help <span style="color:purple">nonprofits</span></p>
+
 <ul id="list">
   <li>17,000,000+ coding challenges solved</li>
   <li>$1,000,000+ in donated development work</li>
