@@ -29,23 +29,35 @@ var snippets  = [
 <p>And help <span style="color:purple">nonprofits</span></p>`
   },
   {
+    title: 'Divs',
+    code: `<div style="text-align:center">
+<h1>FreeCodeCamp</h1>\n
+<p>Learn to <span style="color:green">code</span></p>\n
+<p>And help <span style="color:purple">nonprofits</span></p>
+</div>`
+  },
+  {
     title: 'Links',
-    code: `<h1>FreeCodeCamp</h1>\n 
+    code: `<div style="text-align:center">
+<h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span> 
 and help <span style="color:purple">nonprofits</span></p>\n 
 <p>at <a href="https://www.freecodecamp.com">Free Code Camp</a>.</p>`
   },
     {
     title: 'Images',
-    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+    code: `<div style="text-align:center">
+<img width="590px" src="https://goo.gl/am85O8" />\n
 <h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span>
 and help <span style="color:purple">nonprofits</span></p>\n 
-<p>at <a href="https://www.freecodecamp.com">Free Code Camp</a>.</p>`
+<p>at <a href="https://www.freecodecamp.com">Free Code Camp</a>.</p>
+</div>`
   },
   {
     title: 'Lists',
-    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+    code: `<div style="text-align:center">
+<img width="590px" src="https://goo.gl/am85O8" />\n
 <h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span>
 and help <span style="color:purple">nonprofits</span></p>\n
@@ -54,11 +66,13 @@ and help <span style="color:purple">nonprofits</span></p>\n
   <li>17,000,000+ coding challenges solved</li>
   <li>$1,000,000+ in donated development work</li>
   <li>2,000+ people like you now have developer jobs</li>
-</ul>`
+</ul>
+</div>`
   },
   {
     title: 'Button',
-    code: `<img width="590px" src="https://goo.gl/am85O8" />\n
+    code: `<div style="text-align:center">
+<img width="590px" src="https://goo.gl/am85O8" />\n
 <h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span>
 and help <span style="color:purple">nonprofits</span></p>\n
@@ -67,19 +81,21 @@ and help <span style="color:purple">nonprofits</span></p>\n
   <li>$1,000,000+ in donated development work</li>
   <li>2,000+ people like you now have developer jobs</li>
 </ul>
-<button type="button">Start coding (it's free)</button>`
+<button type="button">Start coding (it's free)</button>
+</div>`
   },
   //CSS
   {
     title:'Element Selector',
     code:`<style>
-body {
+#snippet {
   text-align : center;
 }
 span {
     color: green;
 }
 </style>
+<div id="snippet">
 <h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span>code</span>
 and help <span>nonprofits</span></p>\n
@@ -88,18 +104,20 @@ and help <span>nonprofits</span></p>\n
   <li>$1,000,000+ in donated development work</li>
   <li>2,000+ people like you now have developer jobs</li>
 </ul>
-<button type="button">Start coding (it's free)</button>`
+<button type="button">Start coding (it's free)</button>
+</div>`
   },
   {
     title: 'Class / ID Selector',
     code: `<style>
-body {
+#snippet {
   text-align : center;
 }
 .list {
     list-style-type: none;
 }
 </style>
+<div id="snippet">
 <h1>FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span>
 and help <span style="color:purple">nonprofits</span></p>\n
@@ -108,13 +126,14 @@ and help <span style="color:purple">nonprofits</span></p>\n
   <li>$1,000,000+ in donated development work</li>
   <li>2,000+ people like you now have developer jobs</li>
 </ul>
-<button type="button">Start coding (it's free)</button>`
+<button type="button">Start coding (it's free)</button>
+</div>`
   },
   {
     title:'Background Color',
     code:`
     <style>
-body {
+#snippet {
   text-align : center;
 }
 #title {
@@ -128,6 +147,7 @@ color : white;
     list-style-type: none;
 }
 </style>
+<div id="snippet">
 <h1 id="title">FreeCodeCamp</h1>\n 
 <p>Learn to <span style="color:green">code</span>
 and help <span style="color:purple">nonprofits</span></p>\n
@@ -136,15 +156,46 @@ and help <span style="color:purple">nonprofits</span></p>\n
   <li>$1,000,000+ in donated development work</li>
   <li>2,000+ people like you now have developer jobs</li>
 </ul>
-<button id="btn" type="button">Start coding (it's free)</button>`
+<button id="btn" type="button">Start coding (it's free)</button>
+</div>`
+  },
+  {
+    title: 'Display',
+    code: `<style>
+#snippet {
+  text-align : center;
+}
+#title {
+  color : white;
+  background-color : green;
+}
+#btn {
+  background-color : yellow;
+}
+#list {
+    list-style-type: none;
+    display : inline;
+}
+</style>
+<div id="snippet">
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n
+<ul id="list">
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>
+<button type="button">Start coding (it's free)</button>
+</div>`
   },
   {
     title:'Height & Width',
     code:`<style>
-    .full {
-    height: 50px;
-    width: 100%;
-    background-color: powderblue;
+.full {
+  height: 50px;
+  width: 100%;
+  background-color: powderblue;
 }
 .half {
     height: 100px;
