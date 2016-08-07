@@ -73,51 +73,70 @@ and help <span style="color:purple">nonprofits</span></p>\n
   {
     title:'Element Selector',
     code:`<style>
-p {
+body {
+  text-align : center;
+}
+span {
     color: green;
 }
 </style>
-<p>Every paragraph will be affected by the style.</p>
-<p id="para1">Me too!</p>
-<p>And me!</p>`
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span>code</span>
+and help <span>nonprofits</span></p>\n
+<ul>
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>
+<button type="button">Start coding (it's free)</button>`
   },
   {
-    title: 'ID Selector',
+    title: 'Class / ID Selector',
     code: `<style>
-#para {
-    color: green;
+body {
+  text-align : center;
+}
+.list {
+    list-style-type: none;
 }
 </style>
-<p id="para">My id is "para" !</p>
-<p>I am a paragraph and I don't have an id.</p>`
-  },
-  {
-    title: 'Class Selector',
-    code: `<style>
-.para {
-    color: red;
-}
-</style>
-<p class="para">Make HTML Great Again!</p>
-<p class="para">I am a paragraph and I don't have an id.</p>`
+<h1>FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n
+<ul class="list">
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>
+<button type="button">Start coding (it's free)</button>`
   },
   {
     title:'Background Color',
     code:`
     <style>
-p {
-  color: white;  
+body {
+  text-align : center;
 }
-.para1 {
-    background: blueviolet;
+#title {
+color : white;
+  background-color : green;
 }
-.para2 {
-    background: brown;
+#btn {
+  background-color : yellow;
+}
+#list {
+    list-style-type: none;
 }
 </style>
-<p class="para1">Make HTML Great Again!</p>
-<p class="para2">I am a paragraph and I don't have an id.</p>
-`
+<h1 id="title">FreeCodeCamp</h1>\n 
+<p>Learn to <span style="color:green">code</span>
+and help <span style="color:purple">nonprofits</span></p>\n
+<ul id="list">
+  <li>17,000,000+ coding challenges solved</li>
+  <li>$1,000,000+ in donated development work</li>
+  <li>2,000+ people like you now have developer jobs</li>
+</ul>
+<button id="btn" type="button">Start coding (it's free)</button>`
   },
   {
     title:'Height & Width',
